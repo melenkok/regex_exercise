@@ -8,6 +8,8 @@ Useful rules and concepts that make it easy to understand Regex.
 The result will have only 2 matches with the positions [0:2, 2:end].
 But it does not consider 1:3 as a match. 
 
+## Funtions to search
+
 
 # Different charachters
 
@@ -41,91 +43,73 @@ In Regex we have:
 - **^** beginning of a string
 - **$** end of a string
 
-## Switch to another file
+## Brackets
 
-pattern = re.compile(r '\d\d\d' )
-matches = pattern.finditer(text)
+- **[ ]** called character set. it means that the pattern currently being matched can be any of the characters in the character set
+**characters to be picked from the character set don't need to be escaped **
+>Example 1.  We want to match following patters:
+> 367-980-909 and 908.444.343 
 
-it will find any occurence of 3 numbers in a row. 
+pattern = re.compile(r '\d\d\d[-.]\d\d\d[-.]\d\d\d')
 
-If we want it to find something like 367-980-909 or 908.444.343 or 676 890 565
-pattern = re.compile(r '\d\d\d.\d\d\d.\d\d\d')
-dot means any character 
+>Example 2.  From the text "cat rat mat bat lat hat" we want to match all the words except for "mat" bat"
 
-if we want the separator for the phone number to be only - or . 
-we need special character **[]** so pattern is 
-pattern = re.compile(r '\d\d\d [-.] \d\d\d [-.] \d\d\d') *obv withous spaces*
-
-**We dont need escaping in character set. Even if character set has two characters inside it will only match one of them** so not 367--897.898!!
-
-we want to match only patterns that start with 800 or 900
-pattern = re.compile(r '[89]00 [-.] \d\d\d [-.] \d\d\d')
-
-we want to match only digit from one to 5 pattern = re.compile(r '[1-5]')
-we want to match only lowercase letters pattern = re.compile(r '[a-z]')
-lowercase and uppercase = re.compile(r '[a-zA-Z]')
-
-^ inside a character set negates everything inside of a character set, we want to match only characters that are not lowercase letters pattern = re.compile(r '[^a-z]')
-
-cat rat mat bat ( we want to match cat and rat but not bat ) 
-pattern  = re.compile(r '[^b]at')
-
-INSTEAD pattern = re.compile(r '\d\d\d [-.] \d\d\d [-.] \d\d\d') 
-we can write pattern = re.compile(r '\d{3} [-.] \d{3}[-.] \d{3}')
-
-( ) groups allow us to match several different patterns and we need to use | inside of a group 
+**^ inside of a character set negates the pattern in character set**
+pattern  = re.compile(r '[^bm]at')
 
 
-Mr. Schafer Mr Smith Ms Davis Mrs. Robinson Mr. T
-1) to match Mr and Mr. 
-pattern = re.compile(r 'Mr\.?') 
-dot escaped so it means exactly a dot and also optional bc after it comes ?
-2) with names
-pattern = re.compile(r 'Mr\.?\s[A-Z][a-z]*')  
-\s is one space, and [A-Z] one uppercase letter and then [a-z]*\* means 0 or more lowercase letters
-3) if we want to include Ms and Mrs too
-pattern = re.compile(r 'M(r|s|rs)\.?\s[A-Z][a-z]*')   or 
+
+- **{ }** quantifier that can indicate how many same patterns
+> 367-980-909 and 908.444.343
+
+pattern = re.compile(r '\d{3}[-.]\d{3}[-.]\d{3}')
+
+- **( )** that comes with **|** . It is called a GROUP set. It is similar to character set just that it allows us to say OR between GROUPS of patters. 
+
+**Characters inside of a group patter need to be escaped if they are special characters**
+
+>Example 3.  We want to match following patters:
+>"Ms Sunshine" , "Mr Naughty" , "Mr. Clumsy" and "Mrs Kind"
+
 pattern = re.compile(r '(Mr|Ms|Mrs)\.?\s[A-Z][a-z]*')
 
-lutur-kutur@gmail.com
-lutur.kutur@gmail.edu
-lutu123.kutur@gmail.net
+>Example 4.  We want to match following patters:
+>"Ms Sunshine" , "Mr Naughty" , "Mr. Clumsy" and "Mrs Kind"
 
-(r'[a-zA-Z0-9.-]+@[a-zA-Z]+(com|edu|net)
+## Group example
 
-urls = """
+>From this text we want to be able to match all of the urls
+>urls = '''
  https://www.google.com
  http://coremys.com
  https://youtube.com
  https://www.nasa.gov
- """
+ '''
 
-(r'https?://(www\.)?\w+\.\w+)
+pattern = re.compile(r'https?://(www\.)?(\w+)(\.\w+)')
+*explanation:*
+*https?*  **http and s that is optional**
+*://*  **semicolon and two backslashes
+*(www.)?* **1st group that is optional**
+*(\w+)* **2nd group which contains lowercase word characters**
+*(\.\w+)* **3rd group which contains a .com or any other patter which has a dot and letters**
 
-similarily if we group all of the domain names (google, coremys, youtube, nasa) and we group (.com and .gov)
-r'https?://(www\.)?(\w+)(\.\w+)'
+>If we now want to replace each url in urls multistring text we can use the group property. In the next example we will replace each url with 2nd and 3rd group.
 
-when we print out matches we can print them out by saying match.group(0) which prints the whole match, and group one is an optional www. group 2 is domain name and group 3 is .com or .gov
-
-and now if we wanted to substitute all of the matches with just domain name and extension we 
-pattern = r'https?://(www\.)?(\w+)(\.\w+)'
 subbed_urls = pattern.sub(r'\2\3' , urls)
 
-subber_urls = '''
-google.com
-coremys.com
+>subbed_urls = '''
+ google.com
+ coremys.com
 youtube.com
-nasa.gov '''
-
-
-## Methods
-patter.findinder
-pattern.findall - just returns matches
-pattern.match - checks if the pattern is on the beginning of the string, if no then it doesnt return anything
-pattern.search - returns just first match
+nasa.gov
+ '''
 
 ## Flags
 
-pattern = (r'start' , re.IGNORECASE) it means ignore case 
-re. I = re.IGNORECASE
+If we use flags we can make our search easier. Suppose we want to find either
+>START or start or StaRt or any combination case-wise
 
+pattern  = re.compile(r'(S|s)(T|t)(A|a)(R|r)(T|t))
+ OR
+ pattern = (r'start' , re.IGNORECASE)
