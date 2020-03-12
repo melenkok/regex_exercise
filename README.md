@@ -57,8 +57,6 @@ pattern = re.compile(r '\d\d\d[-.]\d\d\d[-.]\d\d\d')
 
 **^ inside of a character set negates the pattern in character set**
 pattern  = re.compile(r '[^bm]at')
-
-
 <br/>
 <br/>
 
@@ -78,9 +76,6 @@ pattern = re.compile(r '\d{3}[-.]\d{3}[-.]\d{3}')
 
 pattern = re.compile(r '(Mr|Ms|Mrs)\.?\s[A-Z][a-z]*')
 
-
->Example 4.  We want to match following patters:
->"Ms Sunshine" , "Mr Naughty" , "Mr. Clumsy" and "Mrs Kind"
 
 ## Group example
 
