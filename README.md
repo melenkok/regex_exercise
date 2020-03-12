@@ -67,7 +67,8 @@ pattern = re.compile(r '\d{3}[-.]\d{3}[-.]\d{3}')
 
 <br/>
 <br/>
-3. **( ) that comes with |**. \
+
+3. **( ) that comes with |**. 
 
 It is called a GROUP set. It is similar to character set just that it allows us to say OR between GROUPS of patters. 
 <br/>
@@ -97,7 +98,7 @@ pattern = re.compile(r'https?://(www\.)?(\w+)(\.\w+)') \
 <br/>
 *https?*  **http and s that is optional** \
 *://*  **semicolon and two backslashes** \
-*(www.)?* **1st group that is optional** \
+*(www<span></span>.)?* **1st group that is optional** \
 *(\w+)* **2nd group which contains lowercase word characters** \
 *(\.\w+)* **3rd group which contains a .com or any other patter which has a dot and letters** 
 
