@@ -52,6 +52,7 @@ In Regex we have:
 
 pattern = re.compile(r '\d\d\d[-.]\d\d\d[-.]\d\d\d')
 
+
 >Example 2.  From the text "cat rat mat bat lat hat" we want to match all the words except for "mat" bat"
 
 **^ inside of a character set negates the pattern in character set**
@@ -68,10 +69,12 @@ pattern = re.compile(r '\d{3}[-.]\d{3}[-.]\d{3}')
 
 **Characters inside of a group patter need to be escaped if they are special characters**
 
+
 >Example 3.  We want to match following patters:
 >"Ms Sunshine" , "Mr Naughty" , "Mr. Clumsy" and "Mrs Kind"
 
 pattern = re.compile(r '(Mr|Ms|Mrs)\.?\s[A-Z][a-z]*')
+
 
 >Example 4.  We want to match following patters:
 >"Ms Sunshine" , "Mr Naughty" , "Mr. Clumsy" and "Mrs Kind"
