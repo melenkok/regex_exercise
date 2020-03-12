@@ -92,7 +92,7 @@ pattern = re.compile(r '(Mr|Ms|Mrs)\.?\s[A-Z][a-z]*')
  https:\//www<span></span>.nasa.gov \
  '''
 
-pattern = re.compile(r'https?://(www\<span></span>.)?(\w+)(\.\w+)') \
+pattern = re.compile(r'https?:\//(www\.)?(\w+)(\.\w+)') \
 <br/>
 *explanation:* \
 <br/>
