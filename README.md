@@ -88,14 +88,15 @@ pattern = re.compile(r '(Mr|Ms|Mrs)\.?\s[A-Z][a-z]*')
  https://www.nasa.gov
  '''
 
-pattern = re.compile(r'https?://(www\.)?(\w+)(\.\w+)')
+pattern = re.compile(r'https?://(www\.)?(\w+)(\.\w+)') \
 *explanation:*
-*https?*  **http and s that is optional**
-*://*  **semicolon and two backslashes
-*(www.)?* **1st group that is optional**
-*(\w+)* **2nd group which contains lowercase word characters**
-*(\.\w+)* **3rd group which contains a .com or any other patter which has a dot and letters**
+*https?*  **http and s that is optional** \
+*://*  **semicolon and two backslashes \
+*(www.)?* **1st group that is optional** \
+*(\w+)* **2nd group which contains lowercase word characters** \
+*(\.\w+)* **3rd group which contains a .com or any other patter which has a dot and letters** \
 
+<br/>
 >If we now want to replace each url in urls multistring text we can use the group property. In the next example we will replace each url with 2nd and 3rd group.
 
 subbed_urls = pattern.sub(r'\2\3' , urls)
