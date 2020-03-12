@@ -80,7 +80,7 @@ pattern = re.compile(r '(Mr|Ms|Mrs)\.?\s[A-Z][a-z]*')
 
 ## Group example
 
->From this text we want to be able to match all of the urls
+>From this text we want to be able to match all of the urls \
 >urls = '''
  https://www.google.com \
  http://coremys.com \
@@ -96,7 +96,7 @@ pattern = re.compile(r'https?://(www\.)?(\w+)(\.\w+)') \
 *://*  **semicolon and two backslashes \
 *(www.)?* **1st group that is optional** \
 *(\w+)* **2nd group which contains lowercase word characters** \
-*(\.\w+)* **3rd group which contains a .com or any other patter which has a dot and letters** \
+*(\.\w+)* **3rd group which contains a .com or any other patter which has a dot and letters** 
 
 <br/>
 >If we now want to replace each url in urls multistring text we can use the group property. In the next example we will replace each url with 2nd and 3rd group.
