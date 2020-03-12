@@ -81,11 +81,11 @@ pattern = re.compile(r '(Mr|Ms|Mrs)\.?\s[A-Z][a-z]*')
 ## Group example
 
 >From this text we want to be able to match all of the urls \
->urls = '''
- https://www.google.com \
- http://coremys.com \
- https://youtube.com \
- https://www.nasa.gov \
+>urls = ''' \
+ https://<span></span>www.google.com \
+ http://<span></span>coremys.com \
+ https://<span></span>youtube.com \
+ https://<span></span>www.nasa.gov \
  '''
 
 pattern = re.compile(r'https?://(www\.)?(\w+)(\.\w+)') \
