@@ -64,6 +64,7 @@ pattern  = re.compile(r '[^bm]at')
 > 367-980-909 and 908.444.343
 
 pattern = re.compile(r '\d{3}[-.]\d{3}[-.]\d{3}')
+
 <br/>
 <br/>
 3. **( )** that comes with **|** . It is called a GROUP set. It is similar to character set just that it allows us to say OR between GROUPS of patters. 
