@@ -67,7 +67,8 @@ pattern = re.compile(r '\d{3}[-.]\d{3}[-.]\d{3}')
 
 <br/>
 <br/>
-3. **( )** that comes with **|** . \
+3. **( )** that comes with **|**. \
+
 It is called a GROUP set. It is similar to character set just that it allows us to say OR between GROUPS of patters. 
 <br/>
 
