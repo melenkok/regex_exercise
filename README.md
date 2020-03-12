@@ -67,7 +67,7 @@ pattern = re.compile(r '\d{3}[-.]\d{3}[-.]\d{3}')
 
 <br/>
 <br/>
-3. **( )** that comes with **|**. \
+3. **( ) that comes with **|**. \
 
 It is called a GROUP set. It is similar to character set just that it allows us to say OR between GROUPS of patters. 
 <br/>
@@ -85,10 +85,10 @@ pattern = re.compile(r '(Mr|Ms|Mrs)\.?\s[A-Z][a-z]*')
 
 >From this text we want to be able to match all of the urls \
 >urls = ''' \
- https\://<span></span>www.google.com \
+ https://<span></span>www.google.com \
  http://<span></span>coremys.com \
  https://<span></span>youtube.com \
- https\://<span></span>www.nasa.gov \
+ https://<span></span>www.nasa.gov \
  '''
 
 pattern = re.compile(r'https?://(www\.)?(\w+)(\.\w+)') \
