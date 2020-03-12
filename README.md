@@ -45,8 +45,8 @@ In Regex we have:
 
 ## Brackets
 
-1. **[ ]** called character set. it means that the pattern currently being matched can be any of the characters in the character set \
-**Characters to be picked from the character set don't need to be escaped**
+1. **[ ]** called character set. it means that the pattern currently being matched can be any of the characters in the character set. \
+**Characters to be picked from the character set don't need to be escaped.**
 >Example 1.  We want to match following patters:
 > 367-980-909 and 908.444.343 
 
@@ -60,7 +60,7 @@ pattern  = re.compile(r '[^bm]at')
 <br/>
 <br/>
 
-2. **{ }** quantifier that can indicate how many same patterns
+2. **{ }** quantifier that can indicate how many same patterns.
 > 367-980-909 and 908.444.343
 
 pattern = re.compile(r '\d{3}[-.]\d{3}[-.]\d{3}')
@@ -69,7 +69,7 @@ pattern = re.compile(r '\d{3}[-.]\d{3}[-.]\d{3}')
 <br/>
 3. **( )** that comes with **|** . It is called a GROUP set. It is similar to character set just that it allows us to say OR between GROUPS of patters. 
 
-**Characters inside of a group patter need to be escaped if they are special characters**
+**Characters inside of a group patter need to be escaped if they are special characters.**
 
 
 >Example 3.  We want to match following patters:
@@ -93,7 +93,7 @@ pattern = re.compile(r'https?://(www\.)?(\w+)(\.\w+)') \
 *explanation:* \
 <br/>
 *https?*  **http and s that is optional** \
-*://*  **semicolon and two backslashes \
+*://*  **semicolon and two backslashes** \
 *(www.)?* **1st group that is optional** \
 *(\w+)* **2nd group which contains lowercase word characters** \
 *(\.\w+)* **3rd group which contains a .com or any other patter which has a dot and letters** 
@@ -103,7 +103,7 @@ pattern = re.compile(r'https?://(www\.)?(\w+)(\.\w+)') \
 
 subbed_urls = pattern.sub(r'\2\3' , urls)
 
->subbed_urls = '''
+>subbed_urls = ''' \
  google.com
  coremys.com
 youtube.com
