@@ -46,7 +46,7 @@ In Regex we have:
 ## Brackets
 
 1. **[ ]** called character set. it means that the pattern currently being matched can be any of the characters in the character set
-**characters to be picked from the character set don't need to be escaped **
+**characters to be picked from the character set don't need to be escaped**
 >Example 1.  We want to match following patters:
 > 367-980-909 and 908.444.343 
 
@@ -55,7 +55,7 @@ pattern = re.compile(r '\d\d\d[-.]\d\d\d[-.]\d\d\d')
 
 >Example 2.  From the text "cat rat mat bat lat hat" we want to match all the words except for "mat" bat"
 
-**^ inside of a character set negates the pattern in character set**
+**^ inside of a character set negates the pattern in character set** \
 pattern  = re.compile(r '[^bm]at')
 <br/>
 <br/>
